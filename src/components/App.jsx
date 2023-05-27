@@ -1,6 +1,6 @@
 export const App = () => {
   return (
-    <div
+    <div 
       style={{
         height: '100vh',
         display: 'flex',
