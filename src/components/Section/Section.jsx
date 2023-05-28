@@ -1,5 +1,7 @@
 import React, { Component } from "react";
-import css from './Section.module.css'
+import PropTypes from 'prop-types';
+import { SectionContainer, SectionTitle } from "./Section.styled";
+
 class Section extends Component{
     state = {
         
@@ -7,11 +9,18 @@ class Section extends Component{
 
     render() {
         return (
-            <section>
-                <h2 className={css.title}>{this.props.title}</h2>
+            <SectionContainer>
+                <SectionTitle>{this.props.title}</SectionTitle>
                 {this.props.children}
-            </section>
+            </SectionContainer>
         )
     }
 }
+
+
+Section.propTypes = {
+    title: PropTypes.string.isRequired,
+}
+
+
 export default Section

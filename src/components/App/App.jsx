@@ -1,9 +1,9 @@
 import React, { Component } from "react";
-import css from './App.module.css'
+import { AppContainer } from "./App.styled";
 import { countTotalFeedback } from "utils/countTotalFeedback";
 import { countPositiveFeedbackPercentage } from "utils/countPositiveFeedbackPercentage";
-import Statistics from "./Statistics/Statistics";
-import FeedbackOptions from "./FeedbackOptions/FeedbackOptions";
+import Statistics from "../Statistics/Statistics";
+import FeedbackOptions from "../FeedbackOptions/FeedbackOptions";
 import Section from "components/Section/Section";
 import { Notification } from "components/Notification/Notification";
 export class App extends Component{
@@ -20,15 +20,15 @@ export class App extends Component{
   
   render() {
     return (
-      <div onClick={this.show} className={css.appStyle}>
-          <Section className={css.sectionFeedback} title="Please leave feedback">
+      <AppContainer onClick={this.show}>
+          <Section title={"Please leave feedback"}>
              <FeedbackOptions
                   options={this.state}
                   onLeaveFeedback={this.handleFeedbackOnClick}
               />
           </Section>
         
-          <Section className={css.sectionStat} title="Statistics">
+          <Section title="Statistics">
               {this.state.good === 0 && this.state.neutral === 0 && this.state.bad === 0
                   ? <Notification message="There is no feedback"/>
                   : <Statistics
@@ -40,7 +40,7 @@ export class App extends Component{
                    />
                }
           </Section>
-      </div>
+      </AppContainer>
     );
   }
 };
