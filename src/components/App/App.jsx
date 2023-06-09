@@ -20,7 +20,7 @@ export class App extends Component{
   
   render() {
     return (
-      <AppContainer onClick={this.show}>
+      <AppContainer>
           <Section title={"Please leave feedback"}>
              <FeedbackOptions
                   options={this.state}
